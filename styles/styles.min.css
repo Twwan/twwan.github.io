@@ -1,22 +1,30 @@
 @font-face {
   font-family: "mak";
-  src: local("MAK-bold"), url("../assets/fonts/Mak-bold.woff");
+  src: local("MAK-bold"), url(../assets/fonts/Mak-bold.woff);
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: "mak";
-  src: local("MAK-light"), url("../assets/fonts/Mak-light.woff");
+  src: local("MAK-light"), url(../assets/fonts/Mak-light.woff);
   font-weight: 300;
   font-style: normal;
 }
-html,
-body {
+html {
   width: 100%;
   margin: 0;
   padding: 0;
 }
+body,
+input,
+select,
+textarea {
+  color: #1f1e1e;
+  font-family: "Open Sans", sans-serif;
+}
 body {
+  width: 100%;
+  margin: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   display: -webkit-box;
@@ -32,8 +40,6 @@ body {
   background-position: 0 0, 0 0;
   background-size: auto, 100% auto;
   background-repeat: repeat, repeat-y;
-  color: #1f1e1e;
-  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   font-weight: 400;
   font-style: normal;
@@ -43,16 +49,14 @@ body {
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   min-height: 100vh;
-  padding-top: 147px;
+  padding: 147px 0 0;
 }
 input,
-textarea,
-select {
+select,
+textarea {
   -webkit-box-shadow: none;
   box-shadow: none;
-  outline: none;
-  color: #1f1e1e;
-  font-family: "Open Sans", sans-serif;
+  outline: 0;
 }
 textarea {
   resize: none;
@@ -65,6 +69,7 @@ textarea {
 .main-header {
   padding: 100px 0;
 }
+.main-header__text,
 .main-header__title {
   margin: 0 0 70px;
   padding-left: 40px;
@@ -81,15 +86,6 @@ textarea {
   margin: 0 auto;
   max-width: 948px;
   width: 100%;
-  padding-left: 40px;
-  padding-right: 40px;
-  text-align: center;
-  text-transform: uppercase;
-  font-family: "Lora", sans-serif;
-  font-weight: 400;
-  font-size: 45px;
-  line-height: normal;
-  color: #1f1e1e;
 }
 .main-header__picture {
   display: block;
@@ -132,11 +128,13 @@ textarea {
   font-size: 36px;
   font-style: normal;
   font-weight: 500;
-  color: #ffffff;
+  color: #fff;
 }
-a {
+.btn,
+a,
+button {
   color: #1f1e1e;
-  outline: none;
+  outline: 0;
 }
 img {
   max-width: 100%;
@@ -144,13 +142,14 @@ img {
   -o-object-fit: cover;
   object-fit: cover;
 }
+.btn,
+button {
+  cursor: pointer;
+}
 button {
   -webkit-box-shadow: none;
   box-shadow: none;
-  outline: none;
-  color: #1f1e1e;
   font-family: "Open Sans", sans-serif;
-  cursor: pointer;
 }
 .btn {
   display: inline-block;
@@ -159,8 +158,6 @@ button {
   padding: 15px 40px;
   border: 1px solid #1f1e1e;
   background-color: transparent;
-  outline: none;
-  color: #1f1e1e;
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
@@ -169,20 +166,22 @@ button {
   -webkit-transition: color 0.2s, background-color 0.2s, border-color 0.2s;
   transition: color 0.2s, background-color 0.2s, border-color 0.2s;
   overflow: hidden;
-  cursor: pointer;
 }
 .btn:active {
   background-color: #1f1e1e;
-  color: #ffffff;
+  color: #fff;
+}
+.radio,
+.section-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 .section-title {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
   max-width: 624px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
@@ -193,7 +192,7 @@ button {
   margin: 0 auto 150px;
   padding: 8px 45px;
   background-color: #1f1e1e;
-  color: #ffffff;
+  color: #fff;
   font-family: "Lora", serif;
   font-weight: 500;
   font-size: 36px;
@@ -202,9 +201,6 @@ button {
   text-transform: uppercase;
 }
 .radio {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -221,7 +217,7 @@ button {
   cursor: pointer;
 }
 .radio__label:last-child {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 .radio__input {
   position: absolute !important;
@@ -235,6 +231,7 @@ button {
   overflow: hidden !important;
   white-space: nowrap !important;
 }
+.check__input:checked ~ .check__mark,
 .radio__input:checked ~ .radio__mark {
   background-color: #1f1e1e;
 }
@@ -281,9 +278,6 @@ button {
   overflow: hidden !important;
   white-space: nowrap !important;
 }
-.check__input:checked ~ .check__mark {
-  background-color: #1f1e1e;
-}
 .check__input:checked ~ .check__mark::after {
   content: "";
   display: block;
@@ -292,8 +286,8 @@ button {
   left: 7px;
   width: 6px;
   height: 12px;
-  border-bottom: 2px solid #ffffff;
-  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
@@ -332,21 +326,21 @@ button {
   display: flex;
   gap: 15px;
 }
-.field__select,
 .field__input,
+.field__select,
 .field__textarea {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  border: none;
+  border: 0;
   padding: 17px 20px 16px;
   width: 100%;
   border-radius: 5px;
-  background-color: #ffffff;
+  background-color: #fff;
   font-size: 16px;
   color: #1f1e1e;
 }
-.field__select,
-.field__input {
+.field__input,
+.field__select {
   height: 55px;
 }
 .field__textarea {
@@ -432,10 +426,9 @@ button {
   margin-bottom: 40px;
 }
 .form__close-btn {
-  margin: 0 auto;
   padding: 4px 0;
-  border: none;
-  background: transparent;
+  border: 0;
+  background: 0 0;
   color: #1f1e1e;
   font-weight: 600;
   font-size: 16px;
@@ -443,26 +436,27 @@ button {
   text-decoration: underline;
   -webkit-transition: color 0.2s;
   transition: color 0.2s;
-  margin-left: 133px;
+  margin: 0 auto 0 133px;
 }
-.form__close-btn:hover {
+.form__close-btn:hover,
+.page-header__nav-link:hover {
   color: #bc3324;
+}
+.event-card,
+.event-card__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 .event-card {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   width: 405px;
   max-width: 100%;
   min-width: 280px;
 }
 .event-card__link {
   text-decoration: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -489,12 +483,15 @@ button {
   width: 100%;
   padding-top: 107.16%;
 }
-.event-card__picture-img {
+.event-card__picture-img,
+.page-header::before {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+}
+.event-card__picture-img {
   -o-object-fit: cover;
   object-fit: cover;
 }
@@ -527,6 +524,12 @@ button {
   font-weight: 300;
   color: #1f1e1e;
 }
+.listing,
+.listing__events-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 .listing {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -536,18 +539,12 @@ button {
   margin-right: auto;
   padding-left: 40px;
   padding-right: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
 }
 .listing__events-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   margin: 0 -30px -120px;
@@ -567,9 +564,12 @@ button {
   -ms-flex-item-align: center;
   align-self: center;
 }
-.events__container {
+.events__container,
+.reserve > div {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+.events__container {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -607,8 +607,6 @@ button {
   grid-area: scheme;
 }
 .reserve > div {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
   padding: 10px;
   background-color: coral;
   text-align: center;
@@ -627,11 +625,6 @@ button {
 }
 .page-header::before {
   content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   background-color: rgba(222, 222, 222, 0.5);
 }
 @supports (
@@ -684,12 +677,12 @@ button {
   line-height: 25px;
   text-decoration: none;
 }
-.page-header__nav-link:hover {
-  color: #bc3324;
-}
-.page-header__sign-in-btn {
+.page-header__sign-in-btn,
+.pp {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+.page-header__sign-in-btn {
   text-decoration: none;
   padding: 15px 40px;
   background-color: transparent;
@@ -705,8 +698,6 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
   padding: 90px 50px 50px;
   overflow-y: auto;
   z-index: 110;
@@ -721,9 +712,12 @@ button {
     backdrop-filter: blur(25px);
   }
 }
-.pp__container {
+.pp__container,
+.pp__title {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+.pp__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -743,8 +737,6 @@ button {
 }
 .pp__title {
   margin: -110px 0 70px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
   padding: 10px 84px;
   max-width: 595px;
   background-color: #1f1e1e;
@@ -754,7 +746,7 @@ button {
   font-size: 22px;
   line-height: 30px;
   letter-spacing: 0.44px;
-  color: #ffffff;
+  color: #fff;
 }
 .pp__sticky-close {
   position: sticky;
@@ -780,11 +772,11 @@ button {
   align-items: center;
   width: 60px;
   height: 60px;
-  border: none;
-  outline: none;
+  border: 0;
+  outline: 0;
   border-radius: 50%;
   background-color: #1f1e1e;
-  color: #ffffff;
+  color: #fff;
   -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
 }
@@ -824,7 +816,7 @@ button {
 @media (hover: hover) {
   .btn:hover {
     background-color: #1f1e1e;
-    color: #ffffff;
+    color: #fff;
   }
   .event-card__link:hover .event-card__title {
     color: #bc3324;
